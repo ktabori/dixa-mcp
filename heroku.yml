@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Procfile
+run:
+  web: node dist/index.js 
