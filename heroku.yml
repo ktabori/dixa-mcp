@@ -1,5 +1,8 @@
 build:
   docker:
     web: Procfile
+  commands:
+    - npm ci --production=true
+    - npm run build
 run:
   web: npm start 

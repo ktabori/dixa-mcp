@@ -34,6 +34,8 @@
     "fuse.js": "^7.1.0",
     "mcp-proxy": "^2.10.4",
     "strict-event-emitter-types": "^2.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
     "undici": "^7.4.0",
     "uri-templates": "^0.2.0",
     "yargs": "^17.7.2",
@@ -69,21 +71,6 @@
     "jsr": "^0.13.3",
     "prettier": "^3.5.2",
     "semantic-release": "^24.2.3",
-    "tsup": "^8.4.0",
-    "typescript": "^5.7.3",
     "vitest": "^3.0.7"
-  },
-  "tsup": {
-    "entry": [
-      "index.ts",
-      "src/**/*.ts"
-    ],
-    "format": [
-      "esm"
-    ],
-    "dts": true,
-    "splitting": true,
-    "sourcemap": true,
-    "clean": true
   }
 }
