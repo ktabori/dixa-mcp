@@ -2,6 +2,7 @@
   "name": "@ktabori/dixa-mcp",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "packageManager": "pnpm@8.15.4",
   "scripts": {
     "build": "tsup",
     "postinstall": "npm run build",
