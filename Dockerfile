@@ -18,6 +18,7 @@ COPY package*.json ./
 # Install dependencies and build
 RUN npm install -g npm@latest && \
     npm install && \
+    npm install @rollup/rollup-linux-x64-gnu && \
     npm run build
 
 # Production stage
