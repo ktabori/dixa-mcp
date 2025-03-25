@@ -29,8 +29,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install production dependencies only
-RUN npm install --production
+# Install production dependencies only (without running scripts)
+RUN npm install --omit=dev --ignore-scripts
 
 # Copy built files from builder
 COPY --from=builder /app/dist ./dist
@@ -43,4 +43,4 @@ ENV NODE_ENV=production
 ENV PORT=3000
 
 # Start the server
-CMD ["npm", "start"] 
+CMD ["node", "dist/index.js"] 
