@@ -23,7 +23,7 @@ WORKDIR /app
 COPY package*.json .npmrc ./
 
 # Install production dependencies only
-RUN npm ci --omit=dev
+RUN npm install
 
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
