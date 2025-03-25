@@ -1,0 +1,33 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Build output
+dist
+
+# Environment variables
+.env
+.env.*
+
+# Development files
+*.test.ts
+*.spec.ts
+vitest.config.*
+.eslintrc*
+.prettier*
+README.md
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db 
