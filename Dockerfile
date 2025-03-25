@@ -1,10 +1,12 @@
-FROM alpine:3.20 as builder
-
-ENV NODE_VERSION 23.10.0
+FROM node:22-alpine AS builder
 
 WORKDIR /app
+
+# Copy package files
 COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+
+# Install dependencies
+RUN npm ci
 
 # Copy source code
 COPY . .
@@ -13,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM alpine:3.20 AS runner
+FROM node:22-alpine AS runner
 
 WORKDIR /app
 
@@ -21,7 +23,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 # Install production dependencies only
-RUN npm install --omit=dev
+RUN npm ci --omit=dev
 
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
@@ -30,4 +32,4 @@ COPY --from=builder /app/dist ./dist
 ENV NODE_ENV=production
 
 # Start the application
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
