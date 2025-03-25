@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "postinstall": "npm run build",
+    "prepare": "npm run build",
     "start": "node dist/index.js",
     "test": "vitest run && tsc && jsr publish --dry-run",
     "format": "prettier --write . && eslint --fix ."
