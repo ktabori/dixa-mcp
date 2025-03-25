@@ -36,6 +36,16 @@ RUN npm install --omit=dev --ignore-scripts
 # Copy built files from builder
 COPY --from=builder /app/dist ./dist
 
+# Copy Procfile
+COPY Procfile .
+
+# Install foreman for Procfile support
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ruby \
+    && rm -rf /var/lib/apt/lists/* && \
+    gem install foreman
+
 # Expose the port the server will run on
 EXPOSE 3000
 
@@ -43,5 +53,5 @@ EXPOSE 3000
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Start the server
-CMD ["node", "dist/index.js"] 
+# Start the server using foreman
+CMD ["foreman", "start"] 
